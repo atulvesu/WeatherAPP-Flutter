@@ -44,54 +44,57 @@ class _LocationScreenState extends State<LocationScreen> {
           ),
         ),
         constraints: BoxConstraints.expand(),
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.near_me,
-                      size: 50.0,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.location_city,
-                      size: 50.0,
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 15.0),
-                child: Row(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      '$temperature°',
-                      style: kTempTextStyle,
+                    InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.near_me,
+                        size: 50.0,
+                      ),
                     ),
-                    Text(
-                      '☀️',
-                      style: kConditionTextStyle,
+                    InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.location_city,
+                        size: 50.0,
+                      ),
                     ),
                   ],
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 15.0),
-                child: Text(
-                  "It's 🍦 time in San Francisco!",
-                  textAlign: TextAlign.right,
-                  style: kMessageTextStyle,
+                Padding(
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        '$temperature°',
+                        style: kTempTextStyle,
+                      ),
+                      Text(
+                        '☀️',
+                        style: kConditionTextStyle,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(right: 15.0),
+                  child: Text(
+                    "It's 🍦 time in San Francisco!",
+                    textAlign: TextAlign.right,
+                    style: kMessageTextStyle,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
