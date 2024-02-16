@@ -73,15 +73,15 @@ class _LocationScreenState extends State<LocationScreen> {
           return;
         }
 
-        // if (weatherData['main'] == null ||
-        //     weatherData['weather'] == null ||
-        //     weatherData['name'] == null) {
-        //   temperature = 0;
-        //   weatherIcon = 'error';
-        //   weatherMessage = 'Weather data format is incorrect.';
-        //   cityName = 'Error';
-        //   return;
-        // }
+        if (weatherData['main'] == null ||
+            weatherData['weather'] == null ||
+            weatherData['name'] == null) {
+          temperature = 0;
+          weatherIcon = 'error';
+          weatherMessage = 'Weather data format is incorrect.';
+          cityName = 'Error';
+          return;
+        }
 
         double temp = weatherData['main']['temp'];
         temperature = temp.toInt();
