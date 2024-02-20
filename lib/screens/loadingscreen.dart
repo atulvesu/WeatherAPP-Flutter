@@ -1,15 +1,10 @@
 import 'package:clima/screens/locationscreen.dart';
-
-import 'package:clima/services/response.dart';
 import 'package:clima/services/weather.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
-  const LoadingScreen({super.key});
+  const LoadingScreen({Key? key}) : super(key: key);
 
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
@@ -19,26 +14,29 @@ class _LoadingScreenState extends State<LoadingScreen> {
   double latitude = 0;
   double longitude = 0;
 
+  @override
   void initState() {
     super.initState();
-    // getLocation();
     getLocationData();
   }
 
   void getLocationData() async {
     var weatherData = await WeatherModel().getLocationWeather();
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => LocationScreen(
-                  locationWeather: weatherData,
-                )));
+      context,
+      MaterialPageRoute(
+        builder: (context) => LocationScreen(
+          locationWeather: weatherData,
+        ),
+      ),
+    );
   }
-
-  void getData() async {}
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final spinnerSize = screenSize.width * 0.1;
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +44,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         children: [
           SpinKitDoubleBounce(
             color: Colors.teal,
-            size: 100.0,
+            size: spinnerSize,
           ),
           Text(
             "Developed By Atul",

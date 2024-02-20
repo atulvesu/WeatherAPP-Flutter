@@ -23,14 +23,12 @@ class _LocationScreenState extends State<LocationScreen> {
   int temperature = 0;
   // int condition = 0;
   String weatherIcon = "blank";
-
-  String cityName = " xyz";
+  String cityName = "xyz";
   String weatherMessage = "Play";
 
   @override
   void initState() {
     super.initState();
-
     print(widget.locationWeather);
     updateUI(widget.locationWeather);
   }
@@ -72,7 +70,6 @@ class _LocationScreenState extends State<LocationScreen> {
           cityName = 'Error';
           return;
         }
-
         if (weatherData['main'] == null ||
             weatherData['weather'] == null ||
             weatherData['name'] == null) {
